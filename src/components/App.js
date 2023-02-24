@@ -9,13 +9,21 @@ console.log({ CATEGORIES, TASKS });
 
 function App() {
   const [tasks, setTasks] = useState(TASKS)
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  
+  
+
+  function onHandleButtonClick(e) {
+    e.target.className = "selected"
+    setSelectedCategory(e.target.id)
+  }
 
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter categories={CATEGORIES}/>
+      <CategoryFilter categories={CATEGORIES} onHandleButtonClick={onHandleButtonClick}/>
       <NewTaskForm />
-      <TaskList tasks={tasks} setTasks={setTasks}/>
+      <TaskList tasks={tasks} setTasks={setTasks} selectedCategory={selectedCategory} />
     </div>
   );
 }
