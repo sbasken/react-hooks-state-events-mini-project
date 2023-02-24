@@ -1,7 +1,6 @@
 import React from "react";
 
 function CategoryFilter({categories, onHandleButtonClick, selectedCategory }) {
-  console.log(selectedCategory)
 
   const buttons = categories.map(category => 
     <button 
